@@ -1,0 +1,29 @@
+{
+
+  "manifest_version": 2,
+  "name": "Gaze to Surf",
+  "version": "1.0",
+
+  "description": "Turn your webcam on and look at weblinks to browse the web!",
+
+  "icons": {
+    "48": "icons/webcam_iconfinder.svg",
+    "96": "icons/webcam_iconfinder.svg",
+    "128": "icons/webcam_iconfinder.svg"
+  },
+
+  "web_accessible_resources": [
+      "content_scripts/webgazer/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["http://localhost/*", "file:///home/rifazn/try/*", "<all_urls>"],
+      "js": [
+          "content_scripts/webgazer/webgazer.min.js",
+          "content_scripts/startgaze.js"
+      ]
+    }
+  ]
+
+}
