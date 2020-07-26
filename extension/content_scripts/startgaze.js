@@ -1,5 +1,5 @@
 window.applyKalmanFilter=true
-window.saveDataAcrossSessions=true
+// window.saveDataAcrossSessions=true
 
 webgazer.setRegression("ridge")
     .begin()

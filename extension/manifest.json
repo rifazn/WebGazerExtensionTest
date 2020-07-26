@@ -1,5 +1,4 @@
 {
-
   "manifest_version": 2,
   "name": "Gaze to Surf",
   "version": "1.0",
@@ -12,18 +11,28 @@
     "128": "icons/webcam_iconfinder.svg"
   },
 
-  "web_accessible_resources": [
-      "content_scripts/webgazer/*"
+  "permissions": [
+    "tabs", "activeTab"
   ],
 
+  "browser_action": {
+    "default_icon": "icons/webcam_iconfinder.svg",
+    "default_title": "Gaze to Surf!"
+  },
+
+  "background": {
+    "scripts": [
+        "content_scripts/browser-polyfill.js",
+        "background.js"]
+  },
+
   "content_scripts": [
-    {
-      "matches": ["http://localhost/*", "file:///home/rifazn/try/*", "<all_urls>"],
-      "js": [
-          "content_scripts/webgazer/webgazer.min.js",
-          "content_scripts/startgaze.js"
-      ]
-    }
+      {
+          "matches": ["<all_urls>"],
+          "js": [
+              "content_scripts/browser-polyfill.js",
+              "content_scripts/content.js"]
+      }
   ]
 
 }
