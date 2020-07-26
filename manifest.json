@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "Gaze to Surf",
+  "version": "1.0",
+
+  "description": "Test WebGazer in a browser extension.",
+
+  "icons": {
+    "32": "icons/webcam32.png",
+    "48": "icons/webcam48.png",
+    "96": "icons/webcam96.png",
+    "128": "icons/webcam128.png"
+  },
+
+  "permissions": [
+    "tabs", "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/webcam32.png",
+    "default_title": "Gaze to Surf!"
+  },
+
+  "background": {
+    "scripts": [
+        "content_scripts/browser-polyfill.js",
+        "background.js"]
+  },
+
+  "content_scripts": [
+      {
+          "matches": ["<all_urls>"],
+          "js": [
+              "content_scripts/browser-polyfill.js",
+              "content_scripts/content.js"]
+      }
+  ]
+
+}
